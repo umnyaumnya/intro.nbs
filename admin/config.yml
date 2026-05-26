@@ -1,0 +1,229 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Sveltia CMS 설정 파일
+# 이 파일은 CMS UI에서 "무엇을 수정할 수 있는지"를 정의합니다.
+# 수정하려면 사이트의 _data/sections.yml 구조와 맞춰야 합니다.
+# ──────────────────────────────────────────────────────────────────────────────
+
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+# ───── GitHub 연결 ─────
+# 수정 내용은 이 저장소에 직접 커밋됩니다.
+backend:
+  name: github
+  repo: umnyaumnya/intro.nbs
+  branch: main
+  # 인증 방식은 마지막 단계에서 결정 (현재는 기본 설정만)
+
+# 미디어(이미지) 업로드 경로
+media_folder: "images"
+public_folder: "/images"
+
+# 사이트 미리보기 링크 (CMS 화면에서 "사이트 보기" 버튼)
+site_url: https://umnyaumnya.github.io/intro.nbs/
+display_url: https://umnyaumnya.github.io/intro.nbs/
+logo_url: https://umnyaumnya.github.io/intro.nbs/images/studio.png
+
+# ───── 수정 가능한 콘텐츠 정의 ─────
+collections:
+  # _data/sections.yml 한 파일을 통째로 수정하는 컬렉션
+  - name: page_content
+    label: "사이트 콘텐츠"
+    label_singular: "페이지"
+    delete: false   # 실수로 삭제 못하게
+    editor:
+      preview: false
+    files:
+      - name: home_sections
+        label: "메인 페이지 섹션들"
+        file: "_data/sections.yml"
+        description: "섹션을 추가·삭제·순서변경하거나 각 섹션 내용을 수정하세요."
+        fields:
+          - name: sections
+            label: "섹션 목록 (드래그해서 순서 변경 가능)"
+            label_singular: "섹션"
+            widget: list
+            # 섹션 종류별로 다른 입력 폼이 뜸 (추가할 때 선택)
+            types:
+              # ───── 히어로 ─────
+              - name: hero
+                label: "히어로 (페이지 상단 인사말)"
+                widget: object
+                summary: "히어로: {{fields.title_line1}}"
+                fields:
+                  - {name: type, widget: hidden, default: hero}
+                  - {name: eyebrow, label: "윗줄 작은 글씨", widget: string, required: false}
+                  - {name: title_line1, label: "큰 제목 1줄", widget: string}
+                  - {name: title_emphasis, label: "큰 제목 2줄 (초록 강조)", widget: string, required: false}
+                  - {name: body_html, label: "본문 (HTML 허용: <strong class=\"green\">, <br>)", widget: text, required: false}
+                  - name: ctas
+                    label: "버튼들"
+                    widget: list
+                    required: false
+                    summary: "{{fields.label}}"
+                    fields:
+                      - {name: label, label: "버튼 텍스트", widget: string}
+                      - {name: target, label: "이동할 곳 (#섹션id 또는 URL)", widget: string}
+                  - {name: divider_after, label: "이 섹션 뒤에 구분선 표시", widget: boolean, default: true}
+
+              # ───── 성장 사례 ─────
+              - name: stories
+                label: "성장 사례 (Stories)"
+                widget: object
+                summary: "성장사례: {{fields.title_line1}}"
+                fields:
+                  - {name: type, widget: hidden, default: stories}
+                  - {name: eyebrow, label: "윗줄 작은 글씨", widget: string, required: false}
+                  - {name: title_line1, label: "제목 1줄", widget: string}
+                  - {name: title_line2, label: "제목 2줄", widget: string}
+                  - name: title_emphasis_target
+                    label: "초록 강조 위치"
+                    widget: select
+                    options:
+                      - {label: "제목 2줄 앞 단어들", value: line2_first_word}
+                      - {label: "없음", value: none}
+                    default: line2_first_word
+                  - {name: body, label: "본문", widget: text, required: false}
+                  - name: cards
+                    label: "사례 카드들"
+                    widget: list
+                    summary: "{{fields.category}} - {{fields.stat_value}}"
+                    fields:
+                      - {name: category, label: "카테고리명 (예: 스마트스토어)", widget: string}
+                      - {name: icon_emoji, label: "아이콘 이모지", widget: string, default: "🛍️"}
+                      - name: icon_color
+                        label: "아이콘 색"
+                        widget: select
+                        options: [store, ad]
+                        default: store
+                      - {name: quote, label: "인용문", widget: text}
+                      - {name: stat_label, label: "통계 설명", widget: string}
+                      - {name: stat_value, label: "통계 값 (예: +40억)", widget: string}
+                      - {name: stat_suffix, label: "통계 보조 (예: 4년 만에)", widget: string, required: false}
+                  - {name: divider_after, label: "이 섹션 뒤에 구분선", widget: boolean, default: true}
+
+              # ───── 네비스 강점 ─────
+              - name: strengths
+                label: "네비스 강점 (Strengths)"
+                widget: object
+                summary: "강점: {{fields.title_line1}}"
+                fields:
+                  - {name: type, widget: hidden, default: strengths}
+                  - {name: eyebrow, label: "윗줄 작은 글씨", widget: string, required: false}
+                  - {name: title_line1, label: "제목 1줄", widget: string}
+                  - {name: title_line2, label: "제목 2줄 (강조 앞)", widget: string}
+                  - {name: title_emphasis, label: "초록 강조 텍스트", widget: string}
+                  - {name: title_line2_suffix, label: "강조 뒤 조사 (예: 을)", widget: string, required: false}
+                  - name: cards
+                    label: "강점 카드들"
+                    widget: list
+                    summary: "{{fields.card_style}}: {{fields.headline}}"
+                    fields:
+                      - name: card_style
+                        label: "카드 종류"
+                        widget: select
+                        options:
+                          - {label: "카테고리 아이콘 칩 보여주기", value: chips}
+                          - {label: "NAVER LIVE 배지 보여주기", value: live}
+                        default: chips
+                      - name: chips
+                        label: "카테고리 칩 (chips 스타일에서만 사용)"
+                        widget: list
+                        required: false
+                        summary: "{{fields.label}}"
+                        fields:
+                          - {name: label, label: "이름", widget: string}
+                          - {name: emoji, label: "이모지", widget: string}
+                          - name: color
+                            label: "색상 테마"
+                            widget: select
+                            options: [store, ad, place, blog]
+                      - {name: headline, label: "헤드라인", widget: text}
+                      - {name: headline_emphasis, label: "헤드라인 초록 강조", widget: string, required: false}
+                      - {name: cta_label, label: "버튼 텍스트", widget: string, required: false}
+                      - {name: cta_url, label: "버튼 링크", widget: string, required: false}
+                  - name: bottom
+                    label: "하단 블록"
+                    widget: object
+                    required: false
+                    fields:
+                      - {name: headline_line1, label: "헤드라인 1줄", widget: string}
+                      - {name: headline_emphasis, label: "헤드라인 초록 강조", widget: string, required: false}
+                      - {name: headline_line2, label: "헤드라인 강조 뒤 텍스트", widget: string, required: false}
+                      - {name: body_html, label: "본문 (HTML 허용)", widget: text, required: false}
+                  - {name: divider_after, label: "이 섹션 뒤에 구분선", widget: boolean, default: false}
+
+              # ───── 네이버 프로 + Q&A ─────
+              - name: pros
+                label: "네이버 프로 + Q&A"
+                widget: object
+                summary: "네이버 프로 + Q&A"
+                fields:
+                  - {name: type, widget: hidden, default: pros}
+                  - {name: eyebrow, label: "윗줄 작은 글씨", widget: string, required: false}
+                  - name: cards
+                    label: "프로 카드들"
+                    widget: list
+                    summary: "{{fields.meta}}"
+                    fields:
+                      - name: color
+                        label: "카드 색상"
+                        widget: select
+                        options: [orange, teal, blue]
+                        default: orange
+                      - {name: meta, label: "소속 (예: 컨텐츠 | 권세영 프로)", widget: string}
+                      - {name: quote, label: "인용문", widget: text}
+                  - {name: qna_title_line1, label: "Q&A 제목 1줄", widget: string, required: false}
+                  - {name: qna_title_line2, label: "Q&A 제목 2줄 (강조 앞)", widget: string, required: false}
+                  - {name: qna_title_emphasis, label: "Q&A 제목 초록 강조", widget: string, required: false}
+                  - name: qna_items
+                    label: "Q&A 항목들"
+                    widget: list
+                    required: false
+                    summary: "{{fields.q}}"
+                    fields:
+                      - {name: q, label: "질문", widget: string}
+                      - {name: a, label: "답변", widget: text}
+                      - {name: open_by_default, label: "기본 펼침", widget: boolean, default: false}
+                  - {name: divider_after, label: "이 섹션 뒤에 구분선", widget: boolean, default: true}
+
+              # ───── 네이버 스퀘어 ─────
+              - name: square
+                label: "네이버 스퀘어 (Square)"
+                widget: object
+                summary: "스퀘어: {{fields.title_line1}}"
+                fields:
+                  - {name: type, widget: hidden, default: square}
+                  - {name: eyebrow, label: "윗줄 작은 글씨", widget: string, required: false}
+                  - {name: title_line1, label: "제목 1줄", widget: string}
+                  - {name: title_line2, label: "제목 2줄 (강조 앞)", widget: string}
+                  - {name: title_emphasis, label: "초록 강조 텍스트", widget: string}
+                  - {name: title_line2_suffix, label: "강조 뒤 조사", widget: string, required: false}
+                  - name: rows
+                    label: "스퀘어 행들"
+                    widget: list
+                    summary: "{{fields.row_style}}: {{fields.headline_line1}}"
+                    fields:
+                      - name: row_style
+                        label: "행 종류"
+                        widget: select
+                        options:
+                          - {label: "지도 + 지역탭", value: map}
+                          - {label: "스튜디오 이미지 + 링크", value: studio}
+                        default: map
+                      - {name: image, label: "이미지", widget: image}
+                      - {name: image_alt, label: "이미지 설명 (스크린리더용)", widget: string, required: false}
+                      - {name: headline_line1, label: "헤드라인 1줄", widget: string}
+                      - {name: headline_line2, label: "헤드라인 2줄 (강조 앞)", widget: string, required: false}
+                      - {name: headline_emphasis, label: "헤드라인 초록 강조", widget: string, required: false}
+                      - name: location_tabs
+                        label: "지역 탭 (map 스타일에서만)"
+                        widget: list
+                        required: false
+                        summary: "{{fields.label}}"
+                        fields:
+                          - {name: label, label: "지역 이름", widget: string}
+                          - {name: id, label: "내부 ID (영문)", widget: string}
+                          - {name: active, label: "기본 선택", widget: boolean, default: false}
+                      - {name: link_label, label: "링크 텍스트 (studio 스타일에서만)", widget: string, required: false}
+                      - {name: link_url, label: "링크 URL", widget: string, required: false}
+                  - {name: divider_after, label: "이 섹션 뒤에 구분선", widget: boolean, default: false}

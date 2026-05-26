@@ -1,0 +1,27 @@
+{%- assign s = include.section -%}
+<section id="pro">
+  {% if s.eyebrow %}<div class="section-eyebrow">{{ s.eyebrow }}</div>{% endif %}
+  {% if s.cards and s.cards.size > 0 %}
+  <div class="pro-cards">
+    {% for card in s.cards %}
+    <div class="pro-card {{ card.color }}">
+      <div class="pro-meta">{{ card.meta }}</div>
+      <blockquote>"{{ card.quote }}"</blockquote>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if s.qna_items and s.qna_items.size > 0 %}
+  <div class="qna-section">
+    <h3>{{ s.qna_title_line1 }}<br>{{ s.qna_title_line2 }} <span class="green">{{ s.qna_title_emphasis }}</span></h3>
+    <div class="qna-list">
+      {% for item in s.qna_items %}
+      <div class="qna-item{% if item.open_by_default %} open{% endif %}">
+        <button class="qna-question" onclick="toggleQna(this)">{{ item.q }}<span class="qna-toggle">+</span></button>
+        <div class="qna-answer{% if item.open_by_default %} open{% endif %}">{{ item.a }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</section>

@@ -1,0 +1,38 @@
+{%- assign s = include.section -%}
+<section id="strengths">
+  {% if s.eyebrow %}<div class="section-eyebrow">{{ s.eyebrow }}</div>{% endif %}
+  <h2>{{ s.title_line1 }}<br>{{ s.title_line2 }} <span class="green">{{ s.title_emphasis }}</span>{{ s.title_line2_suffix }}</h2>
+  {% if s.cards and s.cards.size > 0 %}
+  <div class="cards-row">
+    {% for card in s.cards %}
+    <div class="strength-card">
+      {% if card.card_style == "chips" and card.chips %}
+        <div class="icon-chips">
+          {% for chip in card.chips %}
+          <div class="icon-chip">
+            <div class="chip-icon chip-{{ chip.color }}">{{ chip.emoji }}</div>
+            <div class="chip-label">{{ chip.label }}</div>
+          </div>
+          {% endfor %}
+        </div>
+      {% elsif card.card_style == "live" %}
+        <div style="background:#111; border-radius:12px; padding:20px 24px; display:flex; align-items:center; gap:12px; min-height:80px;">
+          <span style="font-size:22px; font-weight:900; color:#fff; letter-spacing:-0.03em;">NAVER</span>
+          <span style="font-size:12px; font-weight:700; color:#03C75A; letter-spacing:0.06em; align-self:flex-end; margin-bottom:2px;">LIVE</span>
+        </div>
+      {% endif %}
+      <h3>{{ card.headline }} <span class="green">{{ card.headline_emphasis }}</span></h3>
+      {% if card.cta_url %}
+      <a href="{{ card.cta_url }}" target="_blank" rel="noopener" class="btn btn-outline" style="align-self:flex-start; margin-top:auto;">{{ card.cta_label }}<span class="plus-icon">+</span></a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if s.bottom %}
+  <div class="strengths-bottom">
+    <h3>{{ s.bottom.headline_line1 }}<br><span class="green">{{ s.bottom.headline_emphasis }}</span>{{ s.bottom.headline_line2 }}</h3>
+    {% if s.bottom.body_html %}<p>{{ s.bottom.body_html }}</p>{% endif %}
+  </div>
+  {% endif %}
+</section>

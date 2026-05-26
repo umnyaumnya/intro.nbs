@@ -1,0 +1,20 @@
+{%- assign s = include.section -%}
+<section id="brand">
+  {% if s.eyebrow %}<div class="section-eyebrow">{{ s.eyebrow }}</div>{% endif %}
+  <h1>{{ s.title_line1 }}{% if s.title_emphasis %}<br><span class="green">{{ s.title_emphasis }}</span>{% endif %}</h1>
+  {% if s.body_html %}<p class="body-text">{{ s.body_html }}</p>{% endif %}
+  {% if s.ctas and s.ctas.size > 0 %}
+  <div class="cta-row">
+    {% for cta in s.ctas %}
+    <a href="{{ cta.target }}" class="btn btn-outline">
+      {{ cta.label }}
+      <span class="plus-icon" aria-hidden="true">
+        <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 2v8M2.5 6.5L6 10l3.5-3.5" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>

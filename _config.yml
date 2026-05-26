@@ -1,0 +1,26 @@
+# Jekyll 사이트 기본 설정
+# GitHub Pages가 이 파일을 읽고 자동으로 빌드함
+
+title: 네이버 비즈니스 스쿨
+description: 내 비즈니스의 진짜 성장을 만나는 네이버 비즈니스 스쿨
+lang: ko
+
+# GitHub Pages 프로젝트 사이트는 /repo-name/ 경로로 서빙됨
+# 즉, 실제 URL은 https://umnyaumnya.github.io/intro.nbs/ 이므로 baseurl = "/intro.nbs"
+baseurl: "/intro.nbs"
+url: "https://umnyaumnya.github.io"
+
+# GitHub Pages가 지원하는 마크다운 엔진
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# 빌드에서 제외할 파일/폴더 (CMS UI, README 등은 굳이 사이트로 빌드 안 함)
+exclude:
+  - README.md
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/

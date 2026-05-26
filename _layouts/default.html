@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'ko' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      line-height: 1.6;
+    }
+    section { padding: 72px 40px; max-width: 1100px; margin: 0 auto; }
+    .section-divider { border: none; border-top: 1px solid #222; max-width: 1100px; margin: 0 auto; }
+    .green { color: #03C75A; }
+    .section-eyebrow { font-size: 13px; font-weight: 700; color: #03C75A; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; }
+    h1, h2, h3 { letter-spacing: -0.02em; }
+    h1 { font-size: clamp(30px, 5vw, 52px); font-weight: 900; line-height: 1.2; margin-bottom: 32px; }
+    h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 900; line-height: 1.25; margin-bottom: 16px; }
+    h3 { font-size: 20px; font-weight: 800; line-height: 1.4; }
+    .body-text { font-size: 16px; color: #ccc; line-height: 1.8; margin-top: 24px; max-width: 680px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 50px; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+    .btn-outline { border: 1.5px solid #444; color: #fff; background: transparent; }
+    .btn-outline:hover { border-color: #03C75A; color: #03C75A; }
+    .btn-primary { background: #03C75A; color: #000; border: none; }
+    .btn-primary:hover { background: #02b350; }
+    .plus-icon { width: 22px; height: 22px; border-radius: 50%; background: #03C75A; color: #000; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 14px; font-weight: 700; line-height: 1; }
+    .plus-icon svg { width: 12px; height: 12px; }
+    .cta-row { display: flex; gap: 12px; margin-top: 48px; flex-wrap: wrap; }
+    .stories-grid, .cards-row, .pro-cards, .square-grid { display: grid; gap: 20px; }
+    .stories-grid, .square-grid { grid-template-columns: 1fr 1fr; }
+    .cards-row, .pro-cards { grid-template-columns: 1fr 1fr; }
+    .story-card, .strength-card, .square-card, .pro-card { background: #1a1a1a; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 24px; }
+    .category-tag { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #aaa; letter-spacing: 0.04em; }
+    .category-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .icon-store { background: #1a472a; }
+    .icon-ad { background: #1a1a4a; }
+    blockquote { font-size: 17px; font-weight: 600; line-height: 1.6; color: #fff; border: none; }
+    .story-stat, .strengths-bottom, .square-card-inner { background: #222; border-radius: 20px; }
+    .story-stat { padding: 16px 20px; margin-top: auto; }
+    .stat-label { font-size: 12px; color: #aaa; margin-bottom: 6px; }
+    .stat-value { font-size: 24px; font-weight: 900; color: #03C75A; }
+    .stat-value span { font-size: 14px; color: #aaa; font-weight: 400; margin-left: 6px; }
+    .strength-card { min-height: 340px; padding: 36px 32px; }
+    .icon-chips { display: flex; gap: 10px; flex-wrap: wrap; min-height: 80px; align-items: flex-start; }
+    .icon-chip { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+    .chip-icon { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+    .chip-store { background: #0d3320; }
+    .chip-ad { background: #0d1033; }
+    .chip-place { background: #1a3320; }
+    .chip-blog { background: #2d1a3d; }
+    .icon-chip .chip-label { font-size: 11px; color: #aaa; }
+    .strengths-bottom { margin-top: 48px; padding: 36px 40px; }
+    .strengths-bottom p { font-size: 15px; color: #bbb; line-height: 1.8; max-width: 700px; }
+    .highlight { color: #03C75A; font-weight: 700; }
+    .pro-cards { grid-template-columns: repeat(3, 1fr); }
+    .pro-card { border-radius: 20px; padding: 28px 24px; min-height: 180px; }
+    .pro-card.orange { background: #c47a35; }
+    .pro-card.teal { background: #2a7d7d; }
+    .pro-card.blue { background: #3a5f9e; }
+    .qna-section { margin-top: 64px; }
+    .qna-section h3 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 900; line-height: 1.3; margin-bottom: 32px; }
+    .qna-list { border-top: 1px solid #2a2a2a; }
+    .qna-item { border-bottom: 1px solid #2a2a2a; overflow: hidden; }
+    .qna-question { width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 24px 0; font-size: 17px; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: inherit; transition: color 0.2s; }
+    .qna-question:hover { color: #03C75A; }
+    .qna-item.open .qna-question { color: #03C75A; }
+    .qna-toggle { width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid #444; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; color: #888; transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease; }
+    .qna-item.open .qna-toggle { border-color: #03C75A; color: #03C75A; transform: rotate(45deg); }
+    .qna-answer { display: none; padding: 0 0 24px; font-size: 15px; color: #bbb; line-height: 1.8; max-width: 760px; }
+    .qna-answer.open { display: block; }
+
+    /* 스퀘어 영역: 좌우 분할 카드 */
+    .square-row { background: #1a1a1a; border-radius: 20px; overflow: hidden; display: flex; min-height: 320px; }
+    .square-media { width: 55%; background: #111b28; display: flex; align-items: center; justify-content: center; padding: 24px; flex-shrink: 0; }
+    .square-media img, .square-media svg { max-width: 100%; max-height: 280px; width: auto; height: auto; object-fit: contain; display: block; }
+    .square-copy { flex: 1; padding: 40px 36px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+    .square-copy h3 { font-size: 22px; font-weight: 800; line-height: 1.45; }
+    .square-copy p { font-size: 14px; color: #bbb; line-height: 1.7; }
+    .location-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+    .loc-tab { padding: 8px 18px; border-radius: 50px; font-size: 14px; font-weight: 600; cursor: pointer; border: 1.5px solid #333; color: #aaa; background: transparent; transition: all 0.2s; font-family: inherit; }
+    .loc-tab.active, .loc-tab:hover { background: #03C75A; border-color: #03C75A; color: #000; }
+    .link-arrow { color: #03C75A; font-weight: 700; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+    .link-arrow:hover { text-decoration: underline; }
+
+    @media (max-width: 760px) {
+      section { padding: 72px 24px; }
+      .stories-grid, .cards-row, .square-grid, .pro-cards { grid-template-columns: 1fr; }
+      .cta-row { flex-direction: column; }
+      .square-row { flex-direction: column; min-height: 0; }
+      .square-media { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  {{ content }}
+
+  <script>
+    function toggleQna(el) {
+      const item = el.closest('.qna-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.qna-item.open').forEach(i => {
+        i.classList.remove('open');
+        const a = i.querySelector('.qna-answer');
+        if (a) a.classList.remove('open');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        const ans = item.querySelector('.qna-answer');
+        if (ans) ans.classList.add('open');
+      }
+    }
+    function setTab(btn) {
+      const tabs = btn.closest('.location-tabs');
+      if (!tabs) return;
+      tabs.querySelectorAll('.loc-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>

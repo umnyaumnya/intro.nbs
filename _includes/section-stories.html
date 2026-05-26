@@ -1,0 +1,23 @@
+{%- assign s = include.section -%}
+<section id="stories">
+  {% if s.eyebrow %}<div class="section-eyebrow">{{ s.eyebrow }}</div>{% endif %}
+  <h2>{{ s.title_line1 }}<br>{% if s.title_emphasis_target == "line2_first_word" %}<span class="green">{{ s.title_line2 | split: " " | slice: 0, 2 | join: " " }}</span>{{ s.title_line2 | split: " " | slice: 2, 99 | join: " " | prepend: " " }}{% else %}{{ s.title_line2 }}{% endif %}</h2>
+  {% if s.body %}<p class="body-text">{{ s.body }}</p>{% endif %}
+  {% if s.cards and s.cards.size > 0 %}
+  <div class="stories-grid">
+    {% for card in s.cards %}
+    <div class="story-card">
+      <div class="category-tag">
+        <div class="category-icon icon-{{ card.icon_color | default: 'store' }}">{{ card.icon_emoji }}</div>
+        {{ card.category }}
+      </div>
+      <blockquote>"{{ card.quote }}"</blockquote>
+      <div class="story-stat">
+        <div class="stat-label">{{ card.stat_label }}</div>
+        <div class="stat-value">{{ card.stat_value }}{% if card.stat_suffix %}<span>{{ card.stat_suffix }}</span>{% endif %}</div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
