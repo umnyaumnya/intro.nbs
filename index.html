@@ -5,6 +5,7 @@ layout: default
 {% for section in all %}
   {% case section.type %}
     {% when 'hero' %}{% include section-hero.html section=section %}
+    {% when 'poster' %}{% include section-poster.html section=section %}
     {% when 'stories' %}{% include section-stories.html section=section %}
     {% when 'strengths' %}{% include section-strengths.html section=section %}
     {% when 'pros' %}{% include section-pros.html section=section %}

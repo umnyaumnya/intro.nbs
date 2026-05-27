@@ -3,12 +3,23 @@ sections:
     eyebrow: 네이버 비즈니스 스쿨
     title_line1: 내 비즈니스의 진짜 성장을 만나는
     title_emphasis: 네이버 비즈니스 스쿨
-    body_html: 네이버 비즈니스 스쿨 속 강의들은, <strong class="green">네이버를 직접 만드는 사람들이 만든 커리큘럼</strong>을 따릅니다. 내가 어느 단계에 있는지 알고, 그 다음을 볼 수 있게 설계되어 <strong class="green">260만 수강생</strong>이 같은 자리에서 고민을 풀고 다음 단계로 향했습니다.<br><br>전국 네이버 스퀘어에서는 배운 것을 바로 실습해 볼 수 있고, 같은 고민을 먼저 해결한 사람을 만납니다. <strong class="green">방문자 10 명중 7명</strong>은 네이버 스퀘어를 다시 찾아 진짜 성장을 이어 나갔습니다.<br><br><span style="display:inline-block; font-size:24px; font-weight:900; color:#03C75A; margin:8px 0;">내 성장이, 더 큰 성장의 일부가 됩니다</span><br>사업자와 창작자 각자의 고민이 풀릴 때마다, 그 성장은 혼자의 것으로 끝나지 않습니다. 모든 성장이 모여, 더 큰 임팩트가 됩니다.
+    body_html: 네이버 비즈니스 스쿨의 <strong class="green">260만 명</strong> 수강생과 네이버 스퀘어의 <strong class="green">67만 명</strong> 이용자들은 온라인 교육과 오프라인 허브를 오가며 네이버 생태계 안에서 마주한 각자의 고민을 네이버 프로들과 함께 해결해 왔습니다.<br><br>작은 배움은 다음 단계의 성장으로, 각자의 경험은 더 큰 변화와 연결로 이어집니다.
     ctas:
       - label: 네이버 비즈니스 스쿨
         target: '#strengths'
       - label: 네이버 스퀘어
         target: '#square'
+    divider_after: false
+  - type: poster
+    items:
+      - text: 네이버를 직접 만드는 사람들이 만든 커리큘럼
+        size: small_center
+      - text: 260만 수강생
+        size: medium
+      - text: 방문자 10 명중 7명
+        size: medium
+      - text: 내 성장이, 더 큰 성장의 일부가 됩니다
+        size: large
     divider_after: true
   - type: stories
     eyebrow: 성장 사례
