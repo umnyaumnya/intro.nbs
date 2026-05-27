@@ -28,7 +28,7 @@
       {% endif %}
       <h3>{{ card.headline }} <span class="green">{{ card.headline_emphasis }}</span></h3>
       {% if card.cta_url %}
-      <a href="{{ card.cta_url }}" target="_blank" rel="noopener" class="btn btn-outline" style="align-self:flex-start; margin-top:auto;">{{ card.cta_label }}<span class="plus-icon">+</span></a>
+      <a href="{{ card.cta_url }}" target="_blank" rel="noopener" class="btn btn-outline" style="align-self:flex-start; margin-top:auto;">{{ card.cta_label }}<span class="arrow-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6h8M6 2l4 4-4 4" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
       {% endif %}
     </div>
     {% endfor %}
