@@ -14,7 +14,9 @@
   {% endif %}
   {% if s.qna_items and s.qna_items.size > 0 %}
   <div class="qna-section">
+    {% if s.qna_title_line1 or s.qna_title_line2 or s.qna_title_emphasis %}
     <h3>{{ s.qna_title_line1 }}<br>{{ s.qna_title_line2 }} <span class="green">{{ s.qna_title_emphasis }}</span></h3>
+    {% endif %}
     <div class="qna-list">
       {% for item in s.qna_items %}
       <div class="qna-item{% if item.open_by_default %} open{% endif %}">

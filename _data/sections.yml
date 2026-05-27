@@ -110,9 +110,9 @@ sections:
       - color: blue
         meta: 광고 | 이혜련 프로
         quote: 무조건 광고비 많이 태우라고 말하는 강의는 가짜입니다.
-    qna_title_line1: 자주 묻는 질문,
-    qna_title_line2: 네이버 <span class="green">프로</span>가 직접 답하는
-    qna_title_emphasis: 진심
+    qna_title_line1: ''
+    qna_title_line2: ''
+    qna_title_emphasis: ''
     qna_items:
       - q: 네이버 프로는 왜 강사가 아니라 프로라고 불리나요?
         a: 프로의 이름 안에는 가르치는 사람(Professeur) 뜻 외에도, 자신의 커리어와 이름을 걸고 임팩트를 증명해 낸다는 '프로답다'를 함께 담고 있습니다.<br>네이버 프로들은 네이버 생태계 속 비즈니스의 작은 성장들이 지속 가능할 수 있도록 가장 정교한 실무 프레임을 짜는 사람들입니다.
