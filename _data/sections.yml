@@ -157,8 +157,6 @@ sections:
         headline_emphasis: 원스톱 실습 허브
         image: /images/studio.png
         image_alt: 네이버 스퀘어 스튜디오
-        link_label: 네이버 스퀘어 예약하러 가기 →
-        link_url: https://bizschool.naver.com/
       - headline_line1: 전문가 1:1 코칭부터 장비까지
         headline_emphasis: 무료 멘토링 허브
         image: ''

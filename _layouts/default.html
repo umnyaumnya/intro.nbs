@@ -92,8 +92,9 @@
     /* 스토리/스퀘어 카드 3컬럼용 */
     .stories-grid.col-3, .square-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .square-card-v2 { background: #1a1a1a; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 20px; }
-    .square-card-v2 .card-image { background: #0a0a0a; border-radius: 12px; padding: 20px; display: flex; align-items: center; justify-content: center; min-height: 200px; margin-top: auto; }
-    .square-card-v2 .card-image img { max-width: 100%; max-height: 200px; object-fit: contain; }
+    /* 모든 카드 이미지 영역을 동일 높이로 고정 — 사진 크기가 달라도 시각적으로 균등 */
+    .square-card-v2 .card-image { background: #0a0a0a; border-radius: 12px; padding: 20px; display: flex; align-items: center; justify-content: center; height: 240px; margin-top: auto; overflow: hidden; }
+    .square-card-v2 .card-image img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
     .placeholder-card { opacity: 0.6; }
     .strengths-bottom.as-top { margin-top: 24px; margin-bottom: 48px; }
     .pros-headline { text-align: center; font-size: clamp(18px, 2.5vw, 24px); font-weight: 800; color: #fff; margin-bottom: 40px; line-height: 1.5; }
