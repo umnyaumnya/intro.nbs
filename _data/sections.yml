@@ -32,7 +32,7 @@ sections:
   - type: stories
     eyebrow: 성장 사례
     title_line1: <span class="green">네이버 생태계 곳곳에서</span>
-    title_line2: 진짜 성장을 마주한 경험들
+    title_line2: 진짜 성장을 먼저 경험한 사람들의 이야기.
     title_emphasis_target: manual
     body: 혼자서는 오래 걸릴 고민도, 네이버 생태계 속 진짜 현실을 먼저 경험한 <span class="green">진짜 성장 이야기들</span>을 만난다면 내 비즈니스를 더 깊이 이해할 수 있습니다.
     divider_after: true
@@ -65,9 +65,9 @@ sections:
   - type: strengths
     eyebrow: 네비스 강점
     title_line1: 나의 비즈니스 고민 해결,
-    title_line2: 온라인 교육에서는
-    title_emphasis: 믿을 수 있는 정답
-    title_line2_suffix: 을
+    title_line2: 헤맬 필요 없이
+    title_emphasis: 정답
+    title_line2_suffix: 만을 온라인에서.
     body_html: 네이버 비즈니스의 성장 공식을 매번 분석할 필요 없이.<br>서비스를 직접 운영 & 설계한 <span class="highlight">네이버 프로의 강의</span>를 통해<br>꼭 필요한 솔루션만 가장 빠르고, 가장 정확하게 찾을 수 있습니다.
     divider_after: false
     cards:
