@@ -3,7 +3,7 @@ sections:
     eyebrow: 네이버 비즈니스 스쿨
     title_line1: 내 비즈니스의 진짜 성장을 만나는
     title_emphasis: 네이버 비즈니스 스쿨
-    body_html: 네이버 비즈니스 스쿨의 <strong class="green">260만 명</strong> 수강생과 네이버 스퀘어의 <strong class="green">67만 명</strong> 이용자들은 온라인 교육과 오프라인 허브를 오가며 네이버 생태계 안에서 마주한 각자의 고민을 네이버 프로들과 함께 해결해 왔습니다.<br><br>작은 배움은 다음 단계의 성장으로, 각자의 경험은 더 큰 변화와 연결로 이어집니다.
+    body_html: ''
     ctas:
       - label: 네이버 비즈니스 스쿨
         target: '#strengths'
