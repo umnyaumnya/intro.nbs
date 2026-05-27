@@ -8,11 +8,12 @@
 
 # ───── GitHub 연결 ─────
 # 수정 내용은 이 저장소에 직접 커밋됩니다.
+# 인증 방식: GitHub Personal Access Token (PAT) — 로그인 화면의 "Sign In with Token" 사용.
+# 외부 서비스(Cloudflare/Netlify) 가입 불필요. 추가 backend 설정도 필요 없음.
 backend:
   name: github
   repo: umnyaumnya/intro.nbs
   branch: main
-  # 인증 방식은 마지막 단계에서 결정 (현재는 기본 설정만)
 
 # 미디어(이미지) 업로드 경로
 media_folder: "images"
@@ -21,7 +22,6 @@ public_folder: "/images"
 # 사이트 미리보기 링크 (CMS 화면에서 "사이트 보기" 버튼)
 site_url: https://umnyaumnya.github.io/intro.nbs/
 display_url: https://umnyaumnya.github.io/intro.nbs/
-logo_url: https://umnyaumnya.github.io/intro.nbs/images/studio.png
 
 # ───── 수정 가능한 콘텐츠 정의 ─────
 collections:
