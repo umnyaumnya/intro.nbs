@@ -4,30 +4,28 @@
 # ──────────────────────────────────────────────────────────────────────────────
 
 sections:
-  # 1. 히어로 (페이지 상단)
+  # 1. 히어로 (페이지 상단) — 헤드 카피 + 서브 카피(긴 본문 + 강조) + 버튼
   - type: hero
     eyebrow: 네이버 비즈니스 스쿨
-    title_line1: 내 비즈니스의 진짜 성장을 만나는
+    title_line1: 내 비즈니스의 <span class="green">진짜 성장</span>을 만나는
     title_emphasis: 네이버 비즈니스 스쿨
-    body_html: ''
+    body_html: >-
+      네이버 비즈니스 스쿨 속 강의들은,
+      <strong class="green">네이버를 직접 만드는 사람들이 만든 커리큘럼</strong>을 따릅니다.<br>
+      내가 어느 단계에 있는지 알고, 그 다음을 볼 수 있게 설계되어<br>
+      <strong class="green">260만 수강생</strong>이 같은 자리에서 고민을 풀고 다음 단계로 향했습니다.
+      <br><br>
+      전국 네이버 스퀘어에서는 배운 것을 바로 실습해 볼 수 있고, 같은 고민을 먼저 해결한 사람을 만납니다.<br>
+      <strong class="green">방문자 10 명중 7명</strong>은 네이버 스퀘어를 다시 찾아 진짜 성장을 이어 나갔습니다.
+      <br><br>
+      <span style="display:block; font-size:clamp(22px,3vw,32px); font-weight:900; color:#03C75A; line-height:1.3; margin:24px 0 16px;">내 성장이, 더 큰 성장의 일부가 됩니다</span>
+      사업자와 창작자 각자의 고민이 풀릴 때마다, 그 성장은 혼자의 것으로 끝나지 않습니다.<br>
+      모든 성장이 모여, 더 큰 임팩트가 됩니다.
     ctas:
       - label: 네이버 비즈니스 스쿨
         target: '#strengths'
       - label: 네이버 스퀘어
         target: '#square'
-    divider_after: false
-
-  # 2. 임팩트 포스터 (강조 문구 세로 나열)
-  - type: poster
-    items:
-      - text: 네이버를 직접 만드는 사람들이 만든 커리큘럼
-        size: small_center
-      - text: 260만 수강생
-        size: medium
-      - text: 방문자 10 명중 7명
-        size: medium
-      - text: 내 성장이, 더 큰 성장의 일부가 됩니다
-        size: large
     divider_after: true
 
   # 3. 성장 사례
