@@ -39,6 +39,8 @@
     .category-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
     .icon-store { background: #1a472a; }
     .icon-ad { background: #1a1a4a; }
+    .icon-place { background: #1a3320; }
+    .icon-blog { background: #2d1a3d; }
     blockquote { font-size: 17px; font-weight: 600; line-height: 1.6; color: #fff; border: none; }
     .story-stat, .strengths-bottom, .square-card-inner { background: #222; border-radius: 20px; }
     .story-stat { padding: 16px 20px; margin-top: auto; }
@@ -86,6 +88,20 @@
     .loc-tab.active, .loc-tab:hover { background: #03C75A; border-color: #03C75A; color: #000; }
     .link-arrow { color: #03C75A; font-weight: 700; font-size: 15px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
     .link-arrow:hover { text-decoration: underline; }
+
+    /* 스토리/스퀘어 카드 3컬럼용 */
+    .stories-grid.col-3, .square-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .square-card-v2 { background: #1a1a1a; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+    .square-card-v2 .card-image { background: #0a0a0a; border-radius: 12px; padding: 20px; display: flex; align-items: center; justify-content: center; min-height: 200px; margin-top: auto; }
+    .square-card-v2 .card-image img { max-width: 100%; max-height: 200px; object-fit: contain; }
+    .placeholder-card { opacity: 0.6; }
+    .strengths-bottom.as-top { margin-top: 24px; margin-bottom: 48px; }
+    .pros-headline { text-align: center; font-size: clamp(18px, 2.5vw, 24px); font-weight: 800; color: #fff; margin-bottom: 40px; line-height: 1.5; }
+    .qna-answer p { margin: 0 0 12px 0; }
+
+    @media (max-width: 900px) {
+      .stories-grid.col-3, .square-cards-grid { grid-template-columns: 1fr; }
+    }
 
     @media (max-width: 760px) {
       section { padding: 72px 24px; }

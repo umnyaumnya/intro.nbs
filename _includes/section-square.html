@@ -3,6 +3,43 @@
   {% if s.eyebrow %}<div class="section-eyebrow">{{ s.eyebrow }}</div>{% endif %}
   <h2>{{ s.title_line1 }}<br>{{ s.title_line2 }} <span class="green">{{ s.title_emphasis }}</span>{{ s.title_line2_suffix }}</h2>
 
+  {% if s.body_html %}
+  <div class="strengths-bottom as-top">
+    <p>{{ s.body_html }}</p>
+  </div>
+  {% endif %}
+
+  {% if s.location_tabs and s.location_tabs.size > 0 %}
+  <div class="location-tabs" style="justify-content:center; margin-bottom:40px;">
+    {% for tab in s.location_tabs %}
+    <button class="loc-tab{% if tab.active %} active{% endif %}" onclick="setTab(this, '{{ tab.id }}')">{{ tab.label }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if s.cards and s.cards.size > 0 %}
+  <div class="square-cards-grid">
+    {% for card in s.cards %}
+    <div class="square-card-v2{% if card.placeholder %} placeholder-card{% endif %}">
+      <div>
+        {% if card.headline_line1 %}<h3 style="font-size:18px; font-weight:700; color:#ccc; line-height:1.5;">{{ card.headline_line1 }}</h3>{% endif %}
+        {% if card.headline_emphasis %}<h3 style="font-size:20px; font-weight:800; color:#03C75A; margin-top:4px;">{{ card.headline_emphasis }}</h3>{% endif %}
+        {% if card.link_url %}<div style="margin-top:12px;"><a href="{{ card.link_url }}" target="_blank" rel="noopener" class="link-arrow">{{ card.link_label | default: "자세히 보기 →" }}</a></div>{% endif %}
+      </div>
+      <div class="card-image">
+        {% if card.image %}
+          <img src="{{ card.image | relative_url }}" alt="{{ card.image_alt }}">
+        {% else %}
+          <span style="color:#666; font-size:13px;">(이미지 준비 중)</span>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if s.rows and s.rows.size > 0 %}
+  {%- comment -%}구버전 rows 데이터 호환용{%- endcomment -%}
   <div style="display:flex; flex-direction:column; gap:20px; margin-top:48px;">
     {% for row in s.rows %}
     <div class="square-row">
@@ -11,18 +48,10 @@
       </div>
       <div class="square-copy">
         <h3>{{ row.headline_line1 }}<br>{{ row.headline_line2 }} <span class="green">{{ row.headline_emphasis }}</span></h3>
-        {% if row.row_style == "map" and row.location_tabs %}
-          <div class="location-tabs">
-            {% for tab in row.location_tabs %}
-            <button class="loc-tab{% if tab.active %} active{% endif %}" onclick="setTab(this, '{{ tab.id }}')">{{ tab.label }}</button>
-            {% endfor %}
-          </div>
-        {% endif %}
-        {% if row.link_url %}
-          <a href="{{ row.link_url }}" target="_blank" rel="noopener" class="link-arrow">{{ row.link_label }}</a>
-        {% endif %}
+        {% if row.link_url %}<a href="{{ row.link_url }}" target="_blank" rel="noopener" class="link-arrow">{{ row.link_label }}</a>{% endif %}
       </div>
     </div>
     {% endfor %}
   </div>
+  {% endif %}
 </section>

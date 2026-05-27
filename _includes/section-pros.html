@@ -1,6 +1,7 @@
 {%- assign s = include.section -%}
 <section id="pro">
   {% if s.eyebrow %}<div class="section-eyebrow">{{ s.eyebrow }}</div>{% endif %}
+  {% if s.headline %}<div class="pros-headline">{{ s.headline }}</div>{% endif %}
   {% if s.cards and s.cards.size > 0 %}
   <div class="pro-cards">
     {% for card in s.cards %}

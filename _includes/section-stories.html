@@ -1,21 +1,33 @@
 {%- assign s = include.section -%}
 <section id="stories">
   {% if s.eyebrow %}<div class="section-eyebrow">{{ s.eyebrow }}</div>{% endif %}
-  <h2>{{ s.title_line1 }}<br>{% if s.title_emphasis_target == "line2_first_word" %}<span class="green">{{ s.title_line2 | split: " " | slice: 0, 2 | join: " " }}</span>{{ s.title_line2 | split: " " | slice: 2, 99 | join: " " | prepend: " " }}{% else %}{{ s.title_line2 }}{% endif %}</h2>
+  {%- if s.title_emphasis_target == "line2_first_word" -%}
+    <h2>{{ s.title_line1 }}<br><span class="green">{{ s.title_line2 | split: " " | slice: 0, 2 | join: " " }}</span>{{ s.title_line2 | split: " " | slice: 2, 99 | join: " " | prepend: " " }}</h2>
+  {%- else -%}
+    <h2>{{ s.title_line1 }}<br>{{ s.title_line2 }}</h2>
+  {%- endif -%}
   {% if s.body %}<p class="body-text">{{ s.body }}</p>{% endif %}
   {% if s.cards and s.cards.size > 0 %}
-  <div class="stories-grid">
+  {%- if s.cards.size >= 3 -%}
+    {%- assign grid_class = "stories-grid col-3" -%}
+  {%- else -%}
+    {%- assign grid_class = "stories-grid" -%}
+  {%- endif -%}
+  <div class="{{ grid_class }}">
     {% for card in s.cards %}
-    <div class="story-card">
+    <div class="story-card{% if card.placeholder %} placeholder-card{% endif %}">
       <div class="category-tag">
         <div class="category-icon icon-{{ card.icon_color | default: 'store' }}">{{ card.icon_emoji }}</div>
         {{ card.category }}
       </div>
-      <blockquote>"{{ card.quote }}"</blockquote>
+      {% if card.extra_info %}<div style="font-size:13px; font-weight:700; color:#03C75A; letter-spacing:0.02em;">{{ card.extra_info }}</div>{% endif %}
+      {% if card.quote %}<blockquote>"{{ card.quote }}"</blockquote>{% endif %}
+      {% if card.stat_label or card.stat_value %}
       <div class="story-stat">
-        <div class="stat-label">{{ card.stat_label }}</div>
-        <div class="stat-value">{{ card.stat_value }}{% if card.stat_suffix %}<span>{{ card.stat_suffix }}</span>{% endif %}</div>
+        {% if card.stat_label %}<div class="stat-label">{{ card.stat_label }}</div>{% endif %}
+        {% if card.stat_value %}<div class="stat-value">{{ card.stat_value }}{% if card.stat_suffix %}<span>{{ card.stat_suffix }}</span>{% endif %}</div>{% endif %}
       </div>
+      {% endif %}
     </div>
     {% endfor %}
   </div>

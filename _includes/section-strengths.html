@@ -2,6 +2,11 @@
 <section id="strengths">
   {% if s.eyebrow %}<div class="section-eyebrow">{{ s.eyebrow }}</div>{% endif %}
   <h2>{{ s.title_line1 }}<br>{{ s.title_line2 }} <span class="green">{{ s.title_emphasis }}</span>{{ s.title_line2_suffix }}</h2>
+  {% if s.body_html %}
+  <div class="strengths-bottom as-top">
+    <p>{{ s.body_html }}</p>
+  </div>
+  {% endif %}
   {% if s.cards and s.cards.size > 0 %}
   <div class="cards-row">
     {% for card in s.cards %}

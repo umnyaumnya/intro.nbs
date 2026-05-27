@@ -79,12 +79,13 @@ collections:
                     label: "초록 강조 위치"
                     widget: select
                     options:
-                      - {label: "제목 2줄 앞 단어들", value: line2_first_word}
+                      - {label: "제목 2줄 앞 단어들 자동 강조", value: line2_first_word}
+                      - {label: "수동 (제목 안에 <span class=\"green\">단어</span> 직접 입력)", value: manual}
                       - {label: "없음", value: none}
-                    default: line2_first_word
-                  - {name: body, label: "본문", widget: text, required: false}
+                    default: manual
+                  - {name: body, label: "본문 (HTML 허용)", widget: text, required: false}
                   - name: cards
-                    label: "사례 카드들"
+                    label: "사례 카드들 (3개 고정 권장)"
                     widget: list
                     summary: "{{fields.category}} - {{fields.stat_value}}"
                     fields:
@@ -93,12 +94,14 @@ collections:
                       - name: icon_color
                         label: "아이콘 색"
                         widget: select
-                        options: [store, ad]
+                        options: [store, ad, place, blog]
                         default: store
+                      - {name: extra_info, label: "보조 정보 (예: 2025년 총 58회, 2,522명 교육) - 선택", widget: string, required: false}
                       - {name: quote, label: "인용문", widget: text}
-                      - {name: stat_label, label: "통계 설명", widget: string}
-                      - {name: stat_value, label: "통계 값 (예: +40억)", widget: string}
+                      - {name: stat_label, label: "통계 설명", widget: string, required: false}
+                      - {name: stat_value, label: "통계 값 (예: +40억)", widget: string, required: false}
                       - {name: stat_suffix, label: "통계 보조 (예: 4년 만에)", widget: string, required: false}
+                      - {name: placeholder, label: "준비 중 카드로 표시 (흐리게)", widget: boolean, default: false}
                   - {name: divider_after, label: "이 섹션 뒤에 구분선", widget: boolean, default: true}
 
               # ───── 네비스 강점 ─────
@@ -113,6 +116,7 @@ collections:
                   - {name: title_line2, label: "제목 2줄 (강조 앞)", widget: string}
                   - {name: title_emphasis, label: "초록 강조 텍스트", widget: string}
                   - {name: title_line2_suffix, label: "강조 뒤 조사 (예: 을)", widget: string, required: false}
+                  - {name: body_html, label: "상단 본문 박스 (HTML 허용 - 제목 바로 아래 표시)", widget: text, required: false}
                   - name: cards
                     label: "강점 카드들"
                     widget: list
@@ -160,6 +164,7 @@ collections:
                 fields:
                   - {name: type, widget: hidden, default: pros}
                   - {name: eyebrow, label: "윗줄 작은 글씨", widget: string, required: false}
+                  - {name: headline, label: "상단 소제목 (가운데 정렬, 흰색 굵게)", widget: text, required: false}
                   - name: cards
                     label: "프로 카드들"
                     widget: list
@@ -194,38 +199,32 @@ collections:
                 fields:
                   - {name: type, widget: hidden, default: square}
                   - {name: eyebrow, label: "윗줄 작은 글씨", widget: string, required: false}
-                  - {name: title_line1, label: "제목 1줄", widget: string}
-                  - {name: title_line2, label: "제목 2줄 (강조 앞)", widget: string}
+                  - {name: title_line1, label: "제목 1줄 (HTML 허용)", widget: string}
+                  - {name: title_line2, label: "제목 2줄 (강조 앞, HTML 허용)", widget: string}
                   - {name: title_emphasis, label: "초록 강조 텍스트", widget: string}
                   - {name: title_line2_suffix, label: "강조 뒤 조사", widget: string, required: false}
-                  - name: rows
-                    label: "스퀘어 행들"
+                  - {name: body_html, label: "상단 본문 박스 (HTML 허용 - 제목 바로 아래 표시)", widget: text, required: false}
+                  - name: location_tabs
+                    label: "지역 탭 (카드 위에 표시)"
                     widget: list
-                    summary: "{{fields.row_style}}: {{fields.headline_line1}}"
+                    required: false
+                    summary: "{{fields.label}}"
                     fields:
-                      - name: row_style
-                        label: "행 종류"
-                        widget: select
-                        options:
-                          - {label: "지도 + 지역탭", value: map}
-                          - {label: "스튜디오 이미지 + 링크", value: studio}
-                        default: map
-                      - {name: image, label: "이미지", widget: image}
+                      - {name: label, label: "지역 이름", widget: string}
+                      - {name: id, label: "내부 ID (영문)", widget: string}
+                      - {name: active, label: "기본 선택", widget: boolean, default: false}
+                  - name: cards
+                    label: "스퀘어 카드들 (3컬럼 그리드로 표시)"
+                    widget: list
+                    summary: "{{fields.headline_line1}} / {{fields.headline_emphasis}}"
+                    fields:
+                      - {name: headline_line1, label: "헤드라인 1줄 (흰색)", widget: string}
+                      - {name: headline_emphasis, label: "헤드라인 강조 (초록 굵게)", widget: string, required: false}
+                      - {name: image, label: "카드 이미지", widget: image, required: false}
                       - {name: image_alt, label: "이미지 설명 (스크린리더용)", widget: string, required: false}
-                      - {name: headline_line1, label: "헤드라인 1줄", widget: string}
-                      - {name: headline_line2, label: "헤드라인 2줄 (강조 앞)", widget: string, required: false}
-                      - {name: headline_emphasis, label: "헤드라인 초록 강조", widget: string, required: false}
-                      - name: location_tabs
-                        label: "지역 탭 (map 스타일에서만)"
-                        widget: list
-                        required: false
-                        summary: "{{fields.label}}"
-                        fields:
-                          - {name: label, label: "지역 이름", widget: string}
-                          - {name: id, label: "내부 ID (영문)", widget: string}
-                          - {name: active, label: "기본 선택", widget: boolean, default: false}
-                      - {name: link_label, label: "링크 텍스트 (studio 스타일에서만)", widget: string, required: false}
-                      - {name: link_url, label: "링크 URL", widget: string, required: false}
+                      - {name: link_label, label: "링크 텍스트 (선택)", widget: string, required: false}
+                      - {name: link_url, label: "링크 URL (선택)", widget: string, required: false}
+                      - {name: placeholder, label: "준비 중 카드로 표시 (흐리게)", widget: boolean, default: false}
                   - {name: divider_after, label: "이 섹션 뒤에 구분선", widget: boolean, default: false}
 
               # ───── 임팩트 포스터 (강조 문구 세로 나열) ─────
