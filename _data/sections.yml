@@ -16,7 +16,7 @@ sections:
     divider_after: true
     title_line2: 진짜 성장을 마주한 경험들
     title_emphasis_target: line2_first_word
-    body: 뭐가 맞는지 몰라서 헤매다, 네이버 생태계 속 진짜 현실을 배운 뒤 나의 비즈니스가 달라진 이야기들이 여기 있습니다.
+    body: "혼자서는 오래 걸릴 고민도, \v네이버 생태계 속 진짜 현실을 먼저 경험한 <strong class=\"green\">진짜 성장 이야기</strong>들을 만난다면\v내 비즈니스를 더 깊이 이해할 수 있습니다."
     cards:
       - category: 스마트스토어
         icon_emoji: 🛍️
@@ -32,6 +32,13 @@ sections:
         stat_label: 사이트검색광고 오프라인 수강생 평균 주문 건수
         stat_value: +2.3배
         stat_suffix: 매출 성장
+      - category: 스마트플레이스
+        icon_emoji: 🛍️
+        icon_color: store
+        quote: 취합중
+        stat_label: 취합중
+        stat_value: 취합중
+        stat_suffix: 취합중
   - type: strengths
     eyebrow: 네비스 강점
     title_line1: 나의 비즈니스 고민 해결,
