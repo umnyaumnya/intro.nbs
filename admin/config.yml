@@ -177,6 +177,10 @@ collections:
                         default: orange
                       - {name: meta, label: "소속 (예: 컨텐츠 | 권세영 프로)", widget: string}
                       - {name: quote, label: "인용문", widget: text}
+                  - {name: definition_title, label: "정의 제목 (예: 네이버 프로란?)", widget: string, required: false}
+                  - {name: definition_body, label: "정의 설명문", widget: text, required: false}
+                  - {name: more_label, label: "더보기 버튼 문구", widget: string, required: false}
+                  - {name: more_url, label: "더보기 버튼 링크(URL)", widget: string, required: false}
                   - {name: qna_title_line1, label: "Q&A 제목 1줄", widget: string, required: false}
                   - {name: qna_title_line2, label: "Q&A 제목 2줄 (강조 앞)", widget: string, required: false}
                   - {name: qna_title_emphasis, label: "Q&A 제목 초록 강조", widget: string, required: false}

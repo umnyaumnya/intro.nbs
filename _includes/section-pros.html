@@ -12,6 +12,15 @@
     {% endfor %}
   </div>
   {% endif %}
+  {% if s.definition_body %}
+  <div class="pro-definition">
+    {% if s.definition_title %}<h3>{{ s.definition_title }}</h3>{% endif %}
+    <p>{{ s.definition_body }}</p>
+    {% if s.more_url %}
+    <a href="{{ s.more_url }}" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:16px;">{{ s.more_label | default: "더 자세히 알아보기" }}<span class="arrow-icon" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6h8M6 2l4 4-4 4" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    {% endif %}
+  </div>
+  {% endif %}
   {% if s.qna_items and s.qna_items.size > 0 %}
   <div class="qna-section">
     {% if s.qna_title_line1 or s.qna_title_line2 or s.qna_title_emphasis %}

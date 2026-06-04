@@ -4,23 +4,17 @@
 # ──────────────────────────────────────────────────────────────────────────────
 
 sections:
-  # 1. 히어로 (페이지 상단) — 헤드 카피 + 서브 카피(긴 본문 + 강조) + 버튼
+  # 1. 히어로 (페이지 상단) — 헤드 카피 + 서브 카피 + 버튼
   - type: hero
     eyebrow: 네이버 비즈니스 스쿨
     title_line1: 내 비즈니스의 <span class="green">진짜 성장</span>을 만나는
     title_emphasis: 네이버 비즈니스 스쿨
     body_html: >-
-      네이버 비즈니스 스쿨 속 강의들은,
-      <strong class="green">네이버를 직접 만드는 사람들이 만든 커리큘럼</strong>을 따릅니다.<br>
-      내가 어느 단계에 있는지 알고, 그 다음을 볼 수 있게 설계되어<br>
-      <strong class="green">260만 수강생</strong>이 같은 자리에서 고민을 풀고 다음 단계로 향했습니다.
+      네이버 비즈니스 스쿨에서는 사업자와 창작자들이 언제든 비즈니스 고민을 해결할 수 있도록,
+      네이버를 가장 잘 아는 <strong class="green">네이버 직원들이 설계한 믿을 수 있는 교육</strong>을 제공합니다.
       <br><br>
-      전국 네이버 스퀘어에서는 배운 것을 바로 실습해 볼 수 있고, 같은 고민을 먼저 해결한 사람을 만납니다.<br>
-      <strong class="green">방문자 10 명중 7명</strong>은 네이버 스퀘어를 다시 찾아 진짜 성장을 이어 나갔습니다.
-      <br><br>
-      <span style="display:block; font-size:clamp(22px,3vw,32px); font-weight:900; color:#03C75A; line-height:1.3; margin:24px 0 16px;">내 성장이, 더 큰 성장의 일부가 됩니다</span>
-      사업자와 창작자 각자의 고민이 풀릴 때마다, 그 성장은 혼자의 것으로 끝나지 않습니다.<br>
-      모든 성장이 모여, 더 큰 임팩트가 됩니다.
+      지난 2021년부터 총 <strong class="green">260만 명 이상</strong>의 수강생들이 온·오프라인을 통해
+      비즈니스의 성장을 경험하며 다음 단계로 나아가는 힘을 길렀습니다.
     ctas:
       - label: 네이버 비즈니스 스쿨
         target: '#strengths'
@@ -31,10 +25,10 @@ sections:
   # 3. 성장 사례
   - type: stories
     eyebrow: 성장 사례
-    title_line1: <span class="green">네이버 생태계 곳곳에서</span>
-    title_line2: 진짜 성장을 먼저 경험한 사람들의 이야기.
+    title_line1: 앞서간 사람들의 <span class="green">진짜 성장</span>,
+    title_line2: 숫자로 증명하는 진짜 성과
     title_emphasis_target: manual
-    body: 혼자서는 오래 걸릴 고민도, 네이버 생태계 속 진짜 현실을 먼저 경험한 <span class="green">진짜 성장 이야기들</span>을 만난다면 내 비즈니스를 더 깊이 이해할 수 있습니다.
+    body: 오직 네이버 비즈니스 스쿨의 교육을 통해 이뤄낸 성장 이야기.
     divider_after: true
     cards:
       - category: 스마트스토어
@@ -55,20 +49,19 @@ sections:
       - category: 스마트플레이스
         icon_emoji: 📍
         icon_color: place
-        placeholder: true
-        quote: (자료 취합 중)
-        stat_label: ''
-        stat_value: ''
+        quote: 최종 데이터 확인 중
+        stat_label: 네비스 강의 N회, 예약 수
+        stat_value: +46%
         stat_suffix: ''
 
   # 4. 네비스 강점
   - type: strengths
     eyebrow: 네비스 강점
-    title_line1: 나의 비즈니스 고민 해결,
-    title_line2: 헤맬 필요 없이
-    title_emphasis: 정답
-    title_line2_suffix: 만을 온라인에서.
-    body_html: 네이버 비즈니스의 성장 공식을 매번 분석할 필요 없이.<br>서비스를 직접 운영 & 설계한 <span class="highlight">네이버 프로의 강의</span>를 통해<br>꼭 필요한 솔루션만 가장 빠르고, 가장 정확하게 찾을 수 있습니다.
+    title_line1: 내 상황에 맞는 솔루션만 빠르고 손쉽게!
+    title_line2: 비즈니스 고민, 온라인 강의로
+    title_emphasis: 바로 해결
+    title_line2_suffix: ''
+    body_html: 네이버 비즈니스에 최적화된 교육 커리큘럼을, <span class="highlight">오직 네이버 비즈니스 스쿨에서.</span>
     divider_after: false
     cards:
       - card_style: chips
@@ -85,20 +78,20 @@ sections:
           - label: 컨텐츠
             emoji: ✍️
             color: blog
-        headline: 네이버 비즈니스 성장을 위한 다양한 교육.
+        headline: 네이버 비즈니스 성장을 위한 다양한 솔루션.
         headline_emphasis: 오직 여기서 한 번에.
         cta_label: 전체 강의 둘러보기
         cta_url: https://bizschool.naver.com/
       - card_style: live
         headline: 빠르게 변화하는 네이버 서비스를 더 빠르게.
         headline_emphasis: 오직 여기서 정확하게.
-        cta_label: 이번 달 새롭게 추가된 강의 둘러보기
+        cta_label: 교육 캘린더 둘러보기
         cta_url: https://bizschool.naver.com/
 
   # 5. 네이버 프로 + Q&A
   - type: pros
     eyebrow: 네이버 프로
-    headline: 네이버를 가장 잘 아는 사람들,<br>네이버 <span class="green">프로</span>가 직접 전하는 <span class="green">진심</span>
+    headline: 비즈니스 성장에 <span class="green">진심</span>인 네이버 <span class="green">프로</span>,<br>사업자의 고민을 가장 가까이서 본 사람들.
     divider_after: true
     cards:
       - color: orange
@@ -110,31 +103,34 @@ sections:
       - color: blue
         meta: 광고 | 이혜련 프로
         quote: 무조건 광고비 많이 태우라고 말하는 강의는 가짜입니다.
+    definition_title: 네이버 프로란?
+    definition_body: 네이버 서비스를 직접 설계하고 운영한 경험을 바탕으로, 교육 컨텐츠를 연구하고 강의하는 네이버 직원들입니다.
+    more_label: 네이버 프로, 더 자세히 알아보기
+    more_url: https://bizschool.naver.com/
     qna_title_line1: ''
     qna_title_line2: ''
     qna_title_emphasis: ''
     qna_items:
       - q: 네이버 프로는 왜 강사가 아니라 프로라고 불리나요?
-        a: 프로의 이름 안에는 가르치는 사람(Professeur) 뜻 외에도, 자신의 커리어와 이름을 걸고 임팩트를 증명해 낸다는 '프로답다'를 함께 담고 있습니다.<br>네이버 프로들은 네이버 생태계 속 비즈니스의 작은 성장들이 지속 가능할 수 있도록 가장 정교한 실무 프레임을 짜는 사람들입니다.
+        a: 프로의 이름 안에는 가르치는 사람(Professeur) 뜻 외에도, 자신의 커리어와 이름을 걸고 임팩트를 증명해 낸다는 '프로답다'라는 의미를 담고 있습니다.<br>네이버 프로들은 네이버 생태계 속 비즈니스의 작은 성장들이 지속 가능할 수 있도록 가장 정교한 실무 프레임을 짜는 사람들입니다.
         open_by_default: true
       - q: 네이버 프로의 강의는 무엇이 특별한가요?
-        a: 네이버 프로는 강의 목표를 단순한 지식 전달이 아닌 <span class="green">실질적인 매출 전환</span>에 둡니다.<br>잘 가르치는 강의는 많습니다. 하지만 네이버의 프로는 사업을 '잘 되게' 만듭니다.<br>네이버의 각 서비스 (쇼핑, 광고, 플레이스 등)를 실무자로써 담당하고 매일 직접 사용하는 내부 전문가가, 그 경험을 강의로 옮깁니다.
+        a: 네이버 프로는 강의 목표를 단순한 지식 전달이 아닌 <span class="green">사업자의 성장 그 자체</span>에 둡니다.<br>잘 가르치는 강의는 많습니다. 하지만 네이버 프로는 어떤 이해관계에도 얽매이지 않고 오직 사업자의 성장을 기준으로 고민합니다.<br>네이버의 각 서비스(쇼핑, 광고, 플레이스 등)의 실무 담당 경험을 강의로 옮긴 결과, 단순히 매출이라는 하나의 결과가 아니라 사업이 다음 단계로 나아갈 수 있도록 강의의 방향과 내용까지 지속적으로 고민합니다.
         open_by_default: false
-      - q: 네이버 비즈니스 스쿨, 네이버 프로 강의를 들으면 정말 매출이 오르나요?
+      - q: 네이버 프로 강의를 들으면 정말 매출이 오르나요?
         a: 지금까지 누적 N명의 네이버 프로들이 비즈니스 운영 현장에서 겪는 고민을 누구보다 가까이에서 지켜봤습니다. 실제 운영과 성장에 도움이 되는 방법을 함께 고민해온 결과, 꾸준히 강의를 들어서 좋은 성과를 낸 사례들도 다양하게 보유하고 있습니다.
         open_by_default: false
-      - q: 온라인 강의와 오프라인 강의에는 어떤 차이가 있나요?
+      - q: 네이버 프로들이 진행하는 온라인 강의와 오프라인 강의에는 어떤 차이가 있나요?
         a: 온라인 강의에서는 커리큘럼 맵을 통해, 나의 상황과 수준에 맞는 단계별 수업을 자유롭게 수강할 수 있습니다.<br>오프라인 강의에서는 주제 별, 시의적으로 나에게 필요한 학습 내용을 신청을 통해 수강할 수 있습니다.
         open_by_default: false
 
   # 6. 네이버 스퀘어
   - type: square
     eyebrow: 네이버 스퀘어
-    title_line1: 나의 비즈니스 고민 해결,
-    title_line2: <span class="green">실전 경험</span>은
-    title_emphasis: 전국구 네이버 스퀘어
-    title_line2_suffix: 에서
-    body_html: <span class="green">필요한 곳에, 필요한 때에.</span> 2013년 역삼을 시작으로, 패션 사업자가 몰리던 부산에, 푸드 창작자가 있는 광주에, 스몰 메이커스를 위한 종로까지. 네이버 스퀘어는 늘 공간이 먼저가 아니라, 사업자의 필요가 먼저였습니다.<br>그리고 2026년 7월, AI 시대에 맞는 종로 &amp; 광주 네이버 스퀘어가 새롭게 오픈합니다.
+    title_line1: 필요한 때에 언제든.
+    title_line2: 배운 것을 바로 실행해 볼 수 있는 전국구 오프라인 공간,
+    title_emphasis: 네이버 스퀘어
+    title_line2_suffix: ''
     location_tabs:
       - label: 역삼
         id: yeoksam
@@ -149,12 +145,12 @@ sections:
         id: gwangju
         active: false
     cards:
-      - headline_line1: 어디 있든 동등한 성장 기회
-        headline_emphasis: 지역 거점 성장 허브
+      - headline_line1: 어디에 있든 동등한 성장 기회
+        headline_emphasis: 지역 거점 전국구 성장 허브
         image: /images/korea-map.png
         image_alt: 네이버 스퀘어 전국 지도 (역삼·종로·부산·광주)
       - headline_line1: 온라인에서 배운 걸 바로 써보는
-        headline_emphasis: 원스톱 실습 허브
+        headline_emphasis: 오프라인 실습 허브
         image: /images/studio.png
         image_alt: 네이버 스퀘어 스튜디오
       - headline_line1: 전문가 1:1 코칭부터 장비까지
