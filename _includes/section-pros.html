@@ -24,7 +24,7 @@
   {% if s.qna_items and s.qna_items.size > 0 %}
   <div class="qna-section">
     {% if s.qna_title_line1 or s.qna_title_line2 or s.qna_title_emphasis %}
-    <h3>{{ s.qna_title_line1 }}<br>{{ s.qna_title_line2 }} <span class="green">{{ s.qna_title_emphasis }}</span></h3>
+    <h3>{{ s.qna_title_line1 }}{% if s.qna_title_line2 or s.qna_title_emphasis %}<br>{{ s.qna_title_line2 }}{% if s.qna_title_emphasis %} <span class="green">{{ s.qna_title_emphasis }}</span>{% endif %}{% endif %}</h3>
     {% endif %}
     <div class="qna-list">
       {% for item in s.qna_items %}
